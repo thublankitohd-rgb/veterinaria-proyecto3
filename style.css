@@ -1,0 +1,328 @@
+/* ==========================================================================
+   VARIABLES CSS REQUERIDAS
+   ========================================================================== */
+:root {
+    --color-primario: #2C3E50;
+    --color-secundario: #18BC9C;
+    --color-acento: #F39C12;
+    --color-light-bg: #F1F5F9;
+    --fuente-principal: Arial, Helvetica, sans-serif;
+    --transicion: all 0.35s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    color: #334155;
+    background-color: #FFFFFF;
+    /* Cursor personalizado de huella/pata de perro en color NARANJA que sigue al mouse */
+    cursor: url('https://img.icons8.com/ios-filled/24/F39C12/dog-footprint.png'), auto;
+}
+
+/* Permitir el mismo cursor naranja en elementos interactivos */
+a, button, input, textarea, .card, .navbar-toggler {
+    cursor: url('https://img.icons8.com/ios-filled/24/F39C12/dog-footprint.png'), pointer;
+}
+
+/* Efecto visual de pisadas NARANJAS que van apareciendo al mover el cursor */
+.paw-print {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('https://img.icons8.com/ios-filled/24/F39C12/dog-footprint.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    opacity: 0.75;
+    animation: fadeOutPaw 1s forwards ease-out;
+    z-index: 9999;
+}
+
+@keyframes fadeOutPaw {
+    0% {
+        transform: scale(0.8) rotate(0deg);
+        opacity: 0.75;
+    }
+    100% {
+        transform: scale(1.4) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+/* Utilitarios de Color */
+.bg-primario { background-color: var(--color-primario) !important; }
+.bg-secundario { background-color: var(--color-secundario) !important; }
+.bg-accent { background-color: var(--color-acento) !important; }
+.bg-light-block { background-color: var(--color-light-bg) !important; }
+
+.text-primario { color: var(--color-primario) !important; }
+.text-secundario { color: var(--color-secundario) !important; }
+.text-accent { color: var(--color-acento) !important; }
+
+.bg-secondary-custom { background-color: var(--color-secundario); color: #FFF; }
+
+/* Botones */
+.btn-accent {
+    background-color: var(--color-acento);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50px;
+    transition: var(--transicion);
+}
+.btn-accent:hover {
+    background-color: #d68109;
+    color: #FFFFFF;
+    transform: translateY(-3px);
+}
+
+.btn-secundario {
+    background-color: var(--color-secundario);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    transition: var(--transicion);
+}
+.btn-secundario:hover {
+    background-color: #149d82;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.btn-cta-nav {
+    background-color: var(--color-acento);
+    color: #FFFFFF !important;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    transition: var(--transicion);
+}
+.btn-cta-nav:hover {
+    background-color: #d68109;
+}
+
+/* Navegación */
+.main-nav {
+    background-color: var(--color-primario);
+}
+.main-nav .nav-link {
+    color: #E2E8F0 !important;
+    font-weight: 600;
+    transition: var(--transicion);
+}
+.main-nav .nav-link:hover,
+.main-nav .nav-link.active {
+    color: var(--color-acento) !important;
+}
+.brand-icon {
+    color: var(--color-acento);
+    font-size: 1.75rem;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    padding-top: 70px;
+}
+.hero-img {
+    height: 85vh;
+    min-height: 520px;
+    object-fit: cover;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.45);
+}
+
+/* Tarjeta Hero translúcida para ver más la imagen del fondo */
+.hero-glass-card {
+    background: rgba(44, 62, 80, 0.72);
+    border-left: 6px solid var(--color-acento);
+    backdrop-filter: blur(10px);
+}
+
+/* Encabezados de Sección */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-acento);
+    border-radius: 2px;
+}
+
+/* Tarjetas de Servicios */
+.custom-card {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--transicion);
+    border-top: 5px solid var(--color-acento) !important;
+}
+.custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.2) !important;
+}
+.card-img-wrap {
+    position: relative;
+}
+.service-img {
+    height: 220px;
+    object-fit: cover;
+}
+.card-icon-badge {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primario);
+    color: var(--color-acento);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Tarjetas de Equipo */
+.profile-card {
+    border-radius: 16px;
+    transition: var(--transicion);
+    border-top: 5px solid var(--color-secundario) !important;
+}
+.profile-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12) !important;
+}
+.profile-img-container {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid var(--color-secundario);
+    padding: 3px;
+}
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Sección Testimonios & Carrusel */
+.testimonial-card {
+    border-radius: 16px;
+    background-color: #FFFFFF;
+}
+
+.rainbow-border {
+    position: relative;
+    border: 3px solid transparent;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: rainbowShift 5s linear infinite;
+}
+
+@keyframes rainbowShift {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-secundario);
+}
+
+.heartbeat-anim {
+    animation: heartbeat 1.6s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.1); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.1); }
+    70% { transform: scale(1); }
+}
+
+/* Botones externos del Carrusel */
+.custom-nav-btn {
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-acento);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    border: 2px solid #FFFFFF;
+    transition: var(--transicion);
+}
+.custom-nav-btn:hover {
+    background-color: var(--color-secundario);
+    opacity: 1;
+}
+.btn-prev { left: -25px; }
+.btn-next { right: -25px; }
+
+@media (max-width: 768px) {
+    .btn-prev { left: 0; }
+    .btn-next { right: 0; }
+}
+
+/* Sección Contacto */
+.contact-hover-card {
+    transition: var(--transicion);
+    border-left: 6px solid var(--color-acento) !important;
+}
+.contact-hover-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
+}
+.contact-icon-box {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Footer */
+.footer-bg {
+    background-color: #1E293B;
+}
+.social-circle {
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255,255,255,0.1);
+    color: #FFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: var(--transicion);
+}
+.social-circle:hover {
+    background-color: var(--color-acento);
+    color: #FFF;
+    transform: translateY(-3px);
+}
